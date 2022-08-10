@@ -1,0 +1,74 @@
+.inventory_grid {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 10px;
+    border: 1px #ddd solid;
+    padding: 2rem;
+    position: relative;
+}
+
+.inventory_grid .title {
+    background: #8926EB 0% 0% no-repeat padding-box;
+    opacity: 1;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    text-align: left;
+    font: normal normal normal 33px/44px Segoe UI;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.inventory_grid .left-section .categories {
+    margin-top: 10px;
+    display: flex;
+    justify-content: unset;
+    gap: 10px;
+}
+
+.inventory_grid .left-section .categories span {
+    background: #4791FF 0% 0% no-repeat padding-box;
+    border: 1px solid #4791FF;
+    border-radius: 3px;
+    text-align: left;
+    font: normal normal normal 25px/33px Segoe UI;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    padding: .5rem;
+}
+
+.inventory_grid .data-grid {
+    background: #BE87F4 0% 0% no-repeat padding-box;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    font: normal normal normal 34px/46px Segoe UI;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+table{
+    width: 100%;
+}
+table tr th, table tr td{
+    text-align: center;
+}
+
+.edit{
+    cursor: pointer;
+    background: #4791FF 0% 0% no-repeat padding-box;
+    color: white;
+    font-weight: 600;
+    padding: .2rem;
+    border-radius: 3px;
+}
+
+.tr_notes{
+    cursor: pointer;
+}

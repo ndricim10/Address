@@ -1,0 +1,153 @@
+.home_page header {
+    padding-block: 2rem;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 1.2rem;
+}
+
+.home_page header .btn {
+    padding: .7rem;
+    background-color: rgb(206, 201, 201);
+    color: gray;
+    text-transform: capitalize;
+}
+
+.home_page header .btn:hover {
+    background: #4791FF 0% 0% no-repeat padding-box;
+    color: white;
+    cursor: pointer;
+}
+
+.home_page .title {
+    text-align: left;
+    font: normal normal bold 34px/46px Segoe UI;
+    letter-spacing: 0px;
+    color: #707070;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+
+/* SITES */
+.sites {
+    margin-inline: 30vh;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 6px 8px 13px #BCBCBC3B;
+    opacity: 1;
+    padding-inline: 1.2rem;
+    min-height: 50vh;
+}
+
+.sites .sites_content {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.sites .sitename {
+    text-align: left;
+    font: normal normal bold 15px/17px Helvetica;
+    letter-spacing: 0.23px;
+    color: #363636;
+    opacity: 1;
+    text-transform: uppercase;
+}
+
+.sites .status {
+    text-align: left;
+    font: normal normal bold 15px/17px Helvetica;
+    letter-spacing: 0.23px;
+    color: #363636;
+    opacity: 1;
+}
+
+.in_progress {
+    background: #FF9C46 0% 0% no-repeat padding-box 0.12;
+    border-radius: 6px;
+}
+
+.in_progress span {
+    text-align: left;
+    font: normal normal 900 13px/17px Avenir;
+    letter-spacing: 0px;
+    color: #FF9C46;
+    opacity: 1;
+}
+
+.on_hold {
+    background: #FF6292 0% 0% no-repeat padding-box .08;
+    border-radius: 6px;
+}
+
+.on_hold span {
+    text-align: left;
+    font: normal normal 900 13px/17px Avenir;
+    letter-spacing: 0px;
+    color: #FF6292;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.completed {
+
+    background: #1FC74C 0% 0% no-repeat padding-box 0.08;
+    border-radius: 6px;
+}
+
+.completed span {
+    text-align: left;
+    font: normal normal 900 13px/17px Avenir;
+    letter-spacing: 0px;
+    color: #1FC74C;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.in_progress,
+.completed,
+.on_hold {
+    font-weight: 700;
+    padding: .2rem;
+    border-radius: 1px;
+    text-transform: uppercase;
+}
+
+.address_name {
+    text-align: left;
+    font: normal normal normal 15px/17px Helvetica;
+    letter-spacing: 0.23px;
+    color: #4791FF;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.create_btn {
+
+
+    opacity: 1;
+    display: flex;
+    justify-content: end;
+    margin-inline: 30vh;
+    margin-top: 3vh;
+}
+
+.create_btn .btn {
+    background: #4791FF 0% 0% no-repeat padding-box;
+    border: 1px solid #4791FF;
+    padding: .5rem;
+    box-shadow: 2px 2px 2px #00000012;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+.a {
+    list-style: none;
+    text-decoration: none;
+    color: unset;
+  }
+  
+  a:hover {
+    color: unset;
+    opacity: unset;
+  }
