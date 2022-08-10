@@ -71,39 +71,3 @@ export const getAddressById = (id) => async (dispatch) => {
     console.log(error);
   }
 };
-
-export const editAddress = (id, name, status, categories, number, item, quantity, description, notes ) => async (dispatch) => {
-  try {
-    dispatch({
-      type: edit_address_request,
-    });
-
-    
-    const obj = {
-      name: name,
-      status: status,
-      items: [{
-        item: item,
-        Quantity: quantity,
-        Description: description,
-        notes: notes,
-        number: number
-      }],
-      categories: categories
-    }
-
-    const { data } = await request.put(`/Address/${id}`, obj);
-
-    dispatch({
-      type: edit_address_success
-    });
-    setTimeout(() => {
-      dispatch(getAddress())
-    }, 100)
-  } catch (error) {
-    dispatch({
-      type: edit_address_fail
-    })
-    console.log(error);
-  }
-};

@@ -5,14 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import {  editAddress, getAddressById } from '../Redux/Actions';
 import request from '../api';
 
-export default function EditAddress({ setEditJobSite, number, address, id }) {
+export default function EditAddress({ setEditJobSite, number, address, id, newArray }) {
     const dispatch = useDispatch()
     const adr = address.items?.filter(i => {
         return i.number === number
     })
 
-    const address_edit = address.status
-    console.log(address_edit);
 
     const [item, setItem] = useState(adr[0].item)
     const [num, setnum] = useState(adr[0].number)
@@ -20,12 +18,34 @@ export default function EditAddress({ setEditJobSite, number, address, id }) {
     const [Description, setDescription] = useState(adr[0].Description)
     const [notes, setNotes] = useState(adr[0].notes)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e) =>  {
         e.preventDefault()
         setEditJobSite(false)
-        dispatch(editAddress(id, address.name, address.status, address.categories, num, item, quantity, Description, notes))
-        getAddressById(id)
+        
+        const obj = {
+            name: address.name,
+            status: address.status,
+            items: [
+                {
+              item: item,
+              Quantity: quantity,
+              Description: Description,
+              notes: notes,
+              number: num
+            },
+            ...address.items],
+            categories: address.categories
+          }
+
+          request.put(`/Address/${id}`, obj);
+        
+          setTimeout(() => {
+            dispatch(getAddressById(id))
+          }, 1)
+        
     }
+
+    
 
     function handleCancel(e) {
         e.preventDefault()

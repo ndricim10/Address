@@ -17,8 +17,8 @@ export default function SingleAddress() {
     const { address } = useSelector(state => state.addressById)
     const [editJobSite, setEditJobSite] = useState(false)
 
-    
-    
+
+
 
     const [number, setNumber] = useState('')
     const [item, setItem] = useState('')
@@ -27,11 +27,10 @@ export default function SingleAddress() {
     const [Notes, setNotes] = useState('')
 
 
-    let newArray = address?.items?.filter(i=>[...address.items])
-    let newObject = Object.assign({}, address);
-    
+    let newArray = address?.items?.filter(() => [...address.items]).sort((a, b) => a.number - b.number)
+    address?.items?.sort((a, b) => a.number - b.number)
     function editAddress(item, number, quantity, description, notes) {
-        address.items?.filter(i => {
+        address.items?.filter((i, index) => {
             if (i.number === number) {
                 setEditJobSite(true)
                 setItem(item)
@@ -39,16 +38,25 @@ export default function SingleAddress() {
                 setQuantity(quantity)
                 setDescription(description)
                 setNotes(notes)
+                console.log(index);
             }
         })
     }
 
+    newArray = address?.items?.filter((element, i) => {
+        const isDuplicate = newArray.includes(element.number);
+        if (!isDuplicate) {
+            newArray.push(element.number);
+            return true;
+        }
+    })
 
     return (
         <div className='inventory_grid'>
             {editJobSite && <EditAddress
-            id={id}
-            address = {address}
+                newArray={newArray}
+                id={id}
+                address={address}
                 setItem={setItem}
                 setDescription={setDescription}
                 setQuantity={setQuantity}
@@ -61,7 +69,7 @@ export default function SingleAddress() {
                 </div>
                 <div className="categories">
                     {
-                        newObject.categories?.map((ad, i) => {
+                        address.categories?.map((ad, i) => {
                             return (
                                 <span key={i}>{ad}</span>
                             )
@@ -83,17 +91,17 @@ export default function SingleAddress() {
                             <th>Notes</th>
                         </tr>
                         {
-                           newArray?.map(item => {
-                            return (
-                                <tr  className='tr_notes' onDoubleClick={() => editAddress(item.item, item.number, item.Quantity, item.Description, item.notes)} key={item.number}>
-                                    <td>{item.number}</td>
-                                    <td>{item.item}</td>
-                                    <td>{item.Quantity}</td>
-                                    <td>{item.Description}</td>
-                                    <td>{item.notes}</td>
-                                </tr>
-                            )
-                        })
+                            newArray?.map(item => {
+                                return (
+                                    <tr className='tr_notes' onDoubleClick={() => editAddress(item.item, item.number, item.Quantity, item.Description, item.notes)} key={item.number}>
+                                        <td>{item.number}</td>
+                                        <td>{item.item}</td>
+                                        <td>{item.Quantity}</td>
+                                        <td>{item.Description}</td>
+                                        <td>{item.notes}</td>
+                                    </tr>
+                                )
+                            })
                         }
                     </tbody>
                 </table>
