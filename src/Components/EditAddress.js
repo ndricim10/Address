@@ -2,24 +2,28 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import './edit.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { editAddressById, getAddressById } from '../Redux/Actions';
+import {  editAddress, getAddressById } from '../Redux/Actions';
+import request from '../api';
 
 export default function EditAddress({ setEditJobSite, number, address, id }) {
     const dispatch = useDispatch()
     const adr = address.items?.filter(i => {
         return i.number === number
     })
-    
+
+    const address_edit = address.status
+    console.log(address_edit);
+
     const [item, setItem] = useState(adr[0].item)
     const [num, setnum] = useState(adr[0].number)
     const [quantity, setQuantity] = useState(adr[0].Quantity)
     const [Description, setDescription] = useState(adr[0].Description)
     const [notes, setNotes] = useState(adr[0].notes)
 
-    function handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(editAddressById(id, item, quantity, Description, notes))
         setEditJobSite(false)
+        dispatch(editAddress(id, address.name, address.status, address.categories, num, item, quantity, Description, notes))
         getAddressById(id)
     }
 
@@ -28,11 +32,10 @@ export default function EditAddress({ setEditJobSite, number, address, id }) {
         setEditJobSite(false)
     }
 
-
     return (
         <div className='edit_address'>
             <div className='edit_row'>Edit Row 1</div>
-            <form action="">
+            <form action="" onSubmit={handleSubmit}>
                 <div className="items_flex">
                     <div className="item">
                         <span>Item</span>

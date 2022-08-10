@@ -17,6 +17,9 @@ export default function SingleAddress() {
     const { address } = useSelector(state => state.addressById)
     const [editJobSite, setEditJobSite] = useState(false)
 
+    
+    
+
     const [number, setNumber] = useState('')
     const [item, setItem] = useState('')
     const [Quantity, setQuantity] = useState('')
@@ -26,6 +29,7 @@ export default function SingleAddress() {
 
     let newArray = address?.items?.filter(i=>[...address.items])
     let newObject = Object.assign({}, address);
+    
     function editAddress(item, number, quantity, description, notes) {
         address.items?.filter(i => {
             if (i.number === number) {
@@ -39,7 +43,6 @@ export default function SingleAddress() {
         })
     }
 
-console.log(newArray, newObject);
 
     return (
         <div className='inventory_grid'>

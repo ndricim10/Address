@@ -72,7 +72,7 @@ export const getAddressById = (id) => async (dispatch) => {
   }
 };
 
-export const editAddressById = (id, item, quantity, description, notes ) => async (dispatch) => {
+export const editAddress = (id, name, status, categories, number, item, quantity, description, notes ) => async (dispatch) => {
   try {
     dispatch({
       type: edit_address_request,
@@ -80,12 +80,16 @@ export const editAddressById = (id, item, quantity, description, notes ) => asyn
 
     
     const obj = {
-      items: {
+      name: name,
+      status: status,
+      items: [{
         item: item,
         Quantity: quantity,
         Description: description,
-        notes: notes
-      },
+        notes: notes,
+        number: number
+      }],
+      categories: categories
     }
 
     const { data } = await request.put(`/Address/${id}`, obj);

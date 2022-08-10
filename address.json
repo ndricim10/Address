@@ -1,59 +1,23 @@
 {
   "Address": [
-   
     {
-      "items": [
-        {
-          "number": 1,
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "number": 2,
-          "item": "Libero",
-          "Quantity": 10,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "number": 3,
-          "item": "Libero",
-          "Quantity": 45,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "number": 5,
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "number": 16,
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "number": 8,
-          "item": "Susndisse",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        }
-      ],
       "name": "262 3rd Avenue, New York, NY",
       "status": "on hold",
-      "id": 3,
+      "items": [
+        {
+          "item": "Libero",
+          "Quantity": 3,
+          "Description": "55000",
+          "notes": "Suspndisse potenti nullam",
+          "number": 5
+        }
+      ],
       "categories": [
         "Shed",
         "Scaffold",
         "Other"
-      ]
+      ],
+      "id": 3
     },
     {
       "name": "262 3rd Avenue, New York, NY",
