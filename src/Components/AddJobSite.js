@@ -4,6 +4,7 @@ import { AiFillCaretDown } from 'react-icons/ai'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { addAddress } from '../Redux/Actions';
+import { Modal, Box } from '@material-ui/core';
 
 export default function AddJobSite({ address, setAddJobSite }) {
     const dispatch = useDispatch()
@@ -11,6 +12,12 @@ export default function AddJobSite({ address, setAddJobSite }) {
         return adr.status;
     });
 
+    const style = {
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+    };
     const [status, setStatus] = useState('completed')
     const [openStatus, setOpenStatus] = useState(false)
     const uniqueStatus = [...new Set(myStatus)];
@@ -58,11 +65,14 @@ export default function AddJobSite({ address, setAddJobSite }) {
 
 
     return (
-        <div className='jobsite'>
+        <Modal
+        open={()=>setAddJobSite(true)}
+        onClose={()=>setAddJobSite(false)}>
+            <div className='jobsite' style={style}>
             <div className="jobsite_title">
                 ADD NEW JOB SITE
             </div>
-            <form action="" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div className="name">
                     <span>Name</span>
                     <input type="text" onChange={(e) => setName(e.target.value)} placeholder='Start typing to project name' />
@@ -101,5 +111,6 @@ export default function AddJobSite({ address, setAddJobSite }) {
                 </div>
             </form>
         </div>
+        </Modal>
     )
 }

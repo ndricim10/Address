@@ -65,6 +65,7 @@ export default function HomePage() {
                 <span className='btn' onClick={()=>setAddJobSite(true)}>Create</span>
             </div>
             {addJobSite && <AddJobSite setAddJobSite={setAddJobSite} address={address} />}
+            
         </div>
     )
 }
