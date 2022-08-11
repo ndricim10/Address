@@ -28,7 +28,6 @@ export default function AddAddress({ setAddJobSite, number, address, id, addJobS
     const [notes, setNotes] = useState('')
 
     const existNumber = address.items?.map(item=>item.number)
-    console.log(existNumber);
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -63,8 +62,8 @@ export default function AddAddress({ setAddJobSite, number, address, id, addJobS
             dispatch(getAddressById(id))
         }, 1)
         }
+        getAddressById(id)
     }
-
 
 
     function handleCancel(e) {

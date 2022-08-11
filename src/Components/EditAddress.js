@@ -52,10 +52,8 @@ export default function EditAddress({ setEditJobSite, number, address, id, editJ
 
         setTimeout(() => {
             dispatch(getAddressById(id))
-        }, 1)
+        }, 1000)
     }
-
-    console.log(address.items);
 
     function handleCancel(e) {
         e.preventDefault()

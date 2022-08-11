@@ -223,12 +223,21 @@ export default function SingleAddress() {
                 </div>
             </div>
 
-            <div className="ag-theme-alpine" style={{ height: 400 }}>
+            <div className="ag-theme-alpine" style={{ height: 400, width:1250 } }>
+                
                 <AgGridReact
                     rowData={rowData}
                     columnDefs={defColumns}
                     onGridReady={onGridReady}>
+                    
                 </AgGridReact>
+                <div className="absolute_add">
+                        <div className='create_td' onClick={addAdressModal}>
+                            <div className="create_flex" >
+                                <IoMdCreate size={30} />
+                            </div>
+                        </div>
+                    </div>
             </div>
         </>
     )

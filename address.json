@@ -78,39 +78,53 @@
       "status": "on hold",
       "items": [
         {
-          "number": 1,
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
+          "item": "5",
+          "Quantity": "10",
+          "Description": "000",
+          "notes": "0000",
+          "number": 150
         },
         {
-          "number": 2,
+          "item": "Libero",
+          "Quantity": 3,
+          "Description": "Libero desc",
+          "notes": "Suspndisse potenti nullam",
+          "number": 1
+        },
+        {
           "item": "Libero",
           "Quantity": 10,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
+          "Description": "55 - edit",
+          "notes": "Suspndisse potenti nullam",
+          "number": 2
         },
         {
-          "number": 3,
           "item": "Libero",
           "Quantity": 45,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
+          "Description": "new edit",
+          "notes": "Suspndisse potenti nullam",
+          "number": 3
         },
         {
-          "number": 8,
           "item": "Susndisse",
           "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
+          "Description": "number 8",
+          "notes": "Suspndisse potenti nullam",
+          "number": 8
         },
         {
-          "number": 16,
           "item": "Libero",
           "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
+          "Description": "another description - edit",
+          "notes": "Suspndisse potenti nullam",
+          "number": 16
+        },
+        {
+          "item": "5",
+          "Quantity": "10",
+          "Description": "ksksksk",
+          "notes": "jjjj",
+          "number": 120
         }
       ],
       "categories": [
@@ -125,6 +139,13 @@
       "name": "Some random address",
       "status": "in progress",
       "items": [
+        {
+          "item": "10",
+          "Quantity": "50",
+          "Description": "number 10, description",
+          "notes": "number 10, note",
+          "number": 10
+        },
         {
           "item": "000",
           "Quantity": "000",

@@ -100,3 +100,13 @@ table tr th, table tr td{
     color: white;
     font-weight: 600;
 }
+
+.absolute_add{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.ag-theme-alpine{
+    position: relative;
+}
