@@ -10,27 +10,6 @@
           "Description": 55,
           "notes": "Suspndisse potenti nullam",
           "number": 2
-        },
-        {
-          "item": "10",
-          "Quantity": "111",
-          "Description": "text",
-          "notes": "new note",
-          "number": 10
-        },
-        {
-          "item": "h",
-          "Quantity": "h",
-          "Description": "h",
-          "notes": "h",
-          "number": 19
-        },
-        {
-          "item": "1111",
-          "Quantity": "1111",
-          "Description": "descr",
-          "notes": "1111",
-          "number": 10001
         }
       ],
       "categories": [
@@ -116,13 +95,6 @@
           "number": 3,
           "item": "Libero",
           "Quantity": 45,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "number": 5,
-          "item": "Libero",
-          "Quantity": 3,
           "Description": 55,
           "notes": "Suspndisse potenti nullam"
         },

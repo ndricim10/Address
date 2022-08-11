@@ -90,4 +90,13 @@ table tr th, table tr td{
 }
 .delete_td{
     color: red;
+    cursor: pointer;
+}
+.edit_td{
+    cursor: pointer;
+}
+
+.save{
+    color: white;
+    font-weight: 600;
 }

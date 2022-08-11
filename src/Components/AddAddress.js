@@ -106,7 +106,7 @@ export default function AddAddress({ setAddJobSite, number, address, id, addJobS
 
                     <div className="buttons">
                         <button onClick={handleCancel} >Cancel</button>
-                        <button onClick={handleSubmit} className='save' >Save</button>
+                        <button onClick={handleSubmit} className='save' >Create</button>
                     </div>
                 </form>
             </div>

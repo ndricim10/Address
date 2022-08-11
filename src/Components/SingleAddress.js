@@ -30,13 +30,8 @@ export default function SingleAddress() {
         [Quantity, setQuantity] = useState(''),
         [Description, setDescription] = useState(''),
         [Notes, setNotes] = useState(''),
-        [index, setIndex] = useState(null),
+        [index, setIndex] = useState(null)
 
-
-        [itemField, setItemField] = useState([]),
-        [QuantityField, setQuantityField] = useState([]),
-        [DescriptionField, setDescriptionField] = useState([]),
-        [NotesField, setNotesField] = useState([])
 
 
     let newArray = address?.items?.filter(() => [...address.items])
@@ -88,21 +83,42 @@ export default function SingleAddress() {
         }
     })
 
-    const [rowData, setRowData] = useState([
-        { Nr: "Toyota", Item: "Celica", Quantity: 35000, Description: "Some", Notes: "Notes", Actions: <AiFillEdit /> },
-        
-    ]);
+    const [rowData, setRowData] = useState('');
     const [gridApi, setGridApi] = useState()
 
-    const defColumns = {flex: 1}
+    const defColumns = [
+        { field: 'number', headerName: "Nr" },
+        { field: 'item', headerName: "Item" },
+        { field: 'Quantity' },
+        { field: 'Description' },
+        { field: 'notes' },
+        {
+            field: 'Actions', cellRenderer: (params) => (
+                <div > <AiFillEdit className='edit_td' size={25} onClick={() => editAddress(params.data.item, params.data.number, params.data.Quantity, params.data.Description, params.data.notes)} />
+                    <AiFillDelete size={25} className='delete_td' onClick={() => deleteAddress(params.data.number)} />
+                </div>
+                // console.log(params.data)
 
-    const onGridReady = (params) =>{
+            )
+        },
+    ]
+
+    const onGridReady = (params) => {
         setGridApi(params)
-        // params.api.setColumnDefs([{field: "Nr"}, {field: "Item"}, {field: "Quantity"}, {field: "Description"}, {field: "Notes"}])
-
-        const columns = Object.keys(rowData[0]).map(key=>({field: key}));
+        const columns = Object.keys(rowData[0])?.map(key => ({ field: key }));
         params.api.setColumnDefs(columns)
+
     }
+
+
+    function gettingData() {
+        fetch(`http://localhost:3000/Address/${id}`).then(res => res.json())
+            .then(data => setRowData(data.items))
+    }
+    useEffect(() => {
+        gettingData()
+    }, [id])
+
 
     return (
         <>
@@ -210,7 +226,7 @@ export default function SingleAddress() {
             <div className="ag-theme-alpine" style={{ height: 400 }}>
                 <AgGridReact
                     rowData={rowData}
-                    defaultColDef={defColumns}
+                    columnDefs={defColumns}
                     onGridReady={onGridReady}>
                 </AgGridReact>
             </div>
