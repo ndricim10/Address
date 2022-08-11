@@ -27,13 +27,21 @@ export default function AddAddress({ setAddJobSite, number, address, id, addJobS
     const [Description, setDescription] = useState('')
     const [notes, setNotes] = useState('')
 
+    const existNumber = address.items?.map(item=>item.number)
+    console.log(existNumber);
+
     const handleSubmit = (e) => {
         e.preventDefault()
         if(item.length===0 || num.length===0 ){
             alert('you must put a number or a value')
         }
+        if(address.items?.includes(existNumber)){
+            alert('This number already exists')
+            return null
+        }
         else{
             setAddJobSite(false)
+        console.log(address.items?.includes(parseInt(existNumber)), "eN:", existNumber)
 
         const obj = {
             name: address.name,
@@ -49,7 +57,6 @@ export default function AddAddress({ setAddJobSite, number, address, id, addJobS
                 ...address.items],
             categories: address.categories
         }
-
         request.put(`/Address/${id}`, obj);
 
         setTimeout(() => {

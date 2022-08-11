@@ -5,13 +5,6 @@
       "status": "on hold",
       "items": [
         {
-          "item": "h",
-          "Quantity": "h",
-          "Description": "h",
-          "notes": "h",
-          "number": 19
-        },
-        {
           "item": "Libero",
           "Quantity": "1000",
           "Description": 55,
@@ -26,11 +19,11 @@
           "number": 10
         },
         {
-          "number": 16,
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
+          "item": "h",
+          "Quantity": "h",
+          "Description": "h",
+          "notes": "h",
+          "number": 19
         },
         {
           "item": "1111",
@@ -161,32 +154,11 @@
       "status": "in progress",
       "items": [
         {
-          "item": "different name",
-          "Quantity": 45,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam",
-          "number": 3
-        },
-        {
-          "item": "Susndisse",
-          "Quantity": 3,
-          "Description": "Suspndisse potenti nullam",
-          "notes": "Suspndisse potenti nullam",
-          "number": 8
-        },
-        {
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": "Some description100",
-          "notes": "Suspndisse potenti nullam",
-          "number": 16
-        },
-        {
-          "item": "1",
-          "Quantity": "0",
-          "Description": "111",
-          "notes": "note",
-          "number": 1110
+          "item": "000",
+          "Quantity": "000",
+          "Description": "drtfygu",
+          "notes": "hj",
+          "number": 20
         }
       ],
       "categories": [

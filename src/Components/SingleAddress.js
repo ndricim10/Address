@@ -12,6 +12,8 @@ import { IoMdCreate } from 'react-icons/io'
 import AddAddress from './AddAddress';
 import { AgGridReact } from 'ag-grid-react';
 import request from '../api';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-alpine.css';
 
 export default function SingleAddress() {
     const dispatch = useDispatch()
@@ -27,8 +29,14 @@ export default function SingleAddress() {
         [item, setItem] = useState(''),
         [Quantity, setQuantity] = useState(''),
         [Description, setDescription] = useState(''),
-        [Notes, setNotes] = useState('')
-    const [index, setIndex] = useState(null)
+        [Notes, setNotes] = useState(''),
+        [index, setIndex] = useState(null),
+
+
+        [itemField, setItemField] = useState([]),
+        [QuantityField, setQuantityField] = useState([]),
+        [DescriptionField, setDescriptionField] = useState([]),
+        [NotesField, setNotesField] = useState([])
 
 
     let newArray = address?.items?.filter(() => [...address.items])
@@ -39,7 +47,7 @@ export default function SingleAddress() {
             if (i.number === number) {
                 setEditJobSite(true)
                 setItem(item)
-                setNumber(number)
+                setNumber(parseInt(number))
                 setQuantity(quantity)
                 setDescription(description)
                 setNotes(notes)
@@ -80,111 +88,132 @@ export default function SingleAddress() {
         }
     })
 
-    console.log(address.items);
+    const [rowData, setRowData] = useState([
+        { Nr: "Toyota", Item: "Celica", Quantity: 35000, Description: "Some", Notes: "Notes", Actions: <AiFillEdit /> },
+        
+    ]);
+    const [gridApi, setGridApi] = useState()
 
+    const defColumns = {flex: 1}
+
+    const onGridReady = (params) =>{
+        setGridApi(params)
+        // params.api.setColumnDefs([{field: "Nr"}, {field: "Item"}, {field: "Quantity"}, {field: "Description"}, {field: "Notes"}])
+
+        const columns = Object.keys(rowData[0]).map(key=>({field: key}));
+        params.api.setColumnDefs(columns)
+    }
 
     return (
-        <div className='inventory_grid'>
-            {editJobSite && <EditAddress
-                index={index}
-                editJobSite={editJobSite}
-                newArray={newArray}
-                id={id}
-                address={address}
-                setItem={setItem}
-                setDescription={setDescription}
-                setQuantity={setQuantity}
-                setNotes={setNotes}
-                number={number}
-                setEditJobSite={setEditJobSite} />}
+        <>
+            <div className='inventory_grid'>
+                {editJobSite && <EditAddress
+                    index={index}
+                    editJobSite={editJobSite}
+                    newArray={newArray}
+                    id={id}
+                    address={address}
+                    setItem={setItem}
+                    setDescription={setDescription}
+                    setQuantity={setQuantity}
+                    setNotes={setNotes}
+                    number={number}
+                    setEditJobSite={setEditJobSite} />}
 
-            {addJobSite && <AddAddress
-                addJobSite={addJobSite}
-                newArray={newArray}
-                id={id}
-                address={address}
+                {addJobSite && <AddAddress
+                    addJobSite={addJobSite}
+                    newArray={newArray}
+                    id={id}
+                    address={address}
 
-                number={number}
-                setAddJobSite={setAddJobSite} />}
-            <div className='left-section'>
-                <div className="title">
-                    {address.name}
+                    number={number}
+                    setAddJobSite={setAddJobSite} />}
+                <div className='left-section'>
+                    <div className="title">
+                        {address.name}
+                    </div>
+                    <div className="categories">
+                        {
+                            address.categories?.map((ad, i) => {
+                                return (
+                                    <span key={i}>{ad}</span>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
-                <div className="categories">
-                    {
-                        address.categories?.map((ad, i) => {
-                            return (
-                                <span key={i}>{ad}</span>
-                            )
-                        })
-                    }
-                </div>
-            </div>
-            <div className='right-section'>
-                <div className="data-grid">
-                    DATA GRID
-                </div>
-                <DragDropContext onDragEnd={(param) => {
-                    const srcI = param.source.index;
-                    const desI = param.destination?.index;
-                    if (desI) {
-                        newArray.splice(desI, 0, newArray.splice(srcI, 1)[0]);
-                        //   newArray.saveList(newArray);
-                    }
-                }
-
-                }>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>Nr.</th>
-                                <th>Item</th>
-                                <th>Quantity</th>
-                                <th>Description</th>
-                                <th>Notes</th>
-                            </tr>
-                        </tbody>
-                        <Droppable droppableId="droppable-1">
-                            {(provided) => (
-                                <tbody ref={provided.innerRef}  {...provided.droppableProps}>
-                                    {
-                                        newArray?.map((item, i) => {
-                                            return (
-                                                <Draggable key={item.number} index={i} draggableId={'draggable-' + item.number}>
-                                                    {(provided, snapshot) => (
-                                                        <tr ref={provided.innerRef}
-                                                            {...provided.draggableProps}
-                                                            className='tr_notes'
-                                                            onDoubleClick={() => editAddress(item.item, item.number, item.Quantity, item.Description, item.notes)}
-                                                            style={{
-                                                                ...provided.draggableProps.style,
-                                                                boxShadow: snapshot.isDragging ? '0 0 .1rem #666' : null
-                                                            }}
-                                                        >
-                                                            <td><DragHandle {...provided.dragHandleProps} />{item.number}</td>
-                                                            <td>{item.item}</td>
-                                                            <td>{item.Quantity}</td>
-                                                            <td>{item.Description}</td>
-                                                            <td>{item.notes}</td>
-                                                            <td onClick={() => editAddress(item.item, item.number, item.Quantity, item.Description, item.notes)}><AiFillEdit /></td>
-                                                            <td className='delete_td' onClick={() => deleteAddress(item.number)}><AiFillDelete /></td>
-                                                        </tr>
-                                                    )}
-                                                </Draggable>
-                                            )
-                                        })
-                                    }
-                                    {provided.placeholder}
-                                </tbody>)}
-                        </Droppable>
-                    </table>
-                </DragDropContext>
-                <div className='create_td' onClick={addAdressModal}>
-                    <div className="create_flex" >
-                        <IoMdCreate size={30} />
+                <div className='right-section'>
+                    <div className="data-grid">
+                        DATA GRID
+                    </div>
+                    <DragDropContext onDragEnd={(param) => {
+                        const srcI = param.source.index;
+                        const desI = param.destination?.index;
+                        if (desI) {
+                            newArray.splice(desI, 0, newArray.splice(srcI, 1)[0]);
+                            //   newArray.saveList(newArray);
+                        }
+                    }}>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Nr.</th>
+                                    <th>Item</th>
+                                    <th>Quantity</th>
+                                    <th>Description</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </tbody>
+                            <Droppable droppableId="droppable-1">
+                                {(provided) => (
+                                    <tbody ref={provided.innerRef}  {...provided.droppableProps}>
+                                        {
+                                            newArray?.map((item, i) => {
+                                                return (
+                                                    <Draggable key={item.number} index={i} draggableId={'draggable-' + item.number}>
+                                                        {(provided, snapshot) => (
+                                                            <tr ref={provided.innerRef}
+                                                                {...provided.draggableProps}
+                                                                className='tr_notes'
+                                                                onDoubleClick={() => editAddress(item.item, item.number, item.Quantity, item.Description, item.notes)}
+                                                                style={{
+                                                                    ...provided.draggableProps.style,
+                                                                    boxShadow: snapshot.isDragging ? '0 0 .1rem #666' : null
+                                                                }}
+                                                            >
+                                                                <td><DragHandle {...provided.dragHandleProps} />{item.number}</td>
+                                                                <td>{item.item}</td>
+                                                                <td>{item.Quantity}</td>
+                                                                <td>{item.Description}</td>
+                                                                <td>{item.notes}</td>
+                                                                <td onClick={() => editAddress(item.item, item.number, item.Quantity, item.Description, item.notes)}><AiFillEdit /></td>
+                                                                <td className='delete_td' onClick={() => deleteAddress(item.number)}><AiFillDelete /></td>
+                                                            </tr>
+                                                        )}
+                                                    </Draggable>
+                                                )
+                                            })
+                                        }
+                                        {provided.placeholder}
+                                    </tbody>)}
+                            </Droppable>
+                        </table>
+                    </DragDropContext>
+                    <div className='create_td' onClick={addAdressModal}>
+                        <div className="create_flex" >
+                            <IoMdCreate size={30} />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div className="ag-theme-alpine" style={{ height: 400 }}>
+                <AgGridReact
+                    rowData={rowData}
+                    defaultColDef={defColumns}
+                    onGridReady={onGridReady}>
+                </AgGridReact>
+            </div>
+        </>
     )
 }
