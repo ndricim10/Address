@@ -3,10 +3,15 @@ import { useEffect } from 'react'
 import './Single.css'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { getAddressById } from '../Redux/Actions';
+import { addAddress, getAddressById } from '../Redux/Actions';
 import EditAddress from './EditAddress';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { DragHandle } from './DragHandle';
+import { AiFillEdit, AiFillDelete } from 'react-icons/ai'
+import { IoMdCreate } from 'react-icons/io'
+import AddAddress from './AddAddress';
+import { AgGridReact } from 'ag-grid-react';
+import request from '../api';
 
 export default function SingleAddress() {
     const dispatch = useDispatch()
@@ -17,17 +22,20 @@ export default function SingleAddress() {
 
     const { address } = useSelector(state => state.addressById),
         [editJobSite, setEditJobSite] = useState(false),
+        [addJobSite, setAddJobSite] = useState(false),
         [number, setNumber] = useState(''),
         [item, setItem] = useState(''),
         [Quantity, setQuantity] = useState(''),
         [Description, setDescription] = useState(''),
         [Notes, setNotes] = useState('')
+    const [index, setIndex] = useState(null)
 
 
     let newArray = address?.items?.filter(() => [...address.items])
     address?.items?.sort((a, b) => a.number - b.number)
+
     function editAddress(item, number, quantity, description, notes) {
-        newArray?.filter((i, index) => {
+        newArray?.filter((i, index_) => {
             if (i.number === number) {
                 setEditJobSite(true)
                 setItem(item)
@@ -35,9 +43,33 @@ export default function SingleAddress() {
                 setQuantity(quantity)
                 setDescription(description)
                 setNotes(notes)
-                console.log(index);
+                setIndex(index_)
             }
         })
+    }
+    function deleteAddress(number) {
+        newArray?.filter((i, index) => {
+            if (i.number === number) {
+                setIndex(index);
+                address.items?.splice(index, 1)
+                const obj = {
+                    name: address.name,
+                    status: address.status,
+                    items: [
+                        ...address.items],
+                    categories: address.categories
+                }
+
+                request.put(`/Address/${id}`, obj);
+
+                setTimeout(() => {
+                    dispatch(getAddressById(id))
+                }, 1)
+            }
+        })
+    }
+    function addAdressModal() {
+        setAddJobSite(true)
     }
 
     newArray = address?.items?.filter((element, i) => {
@@ -48,10 +80,13 @@ export default function SingleAddress() {
         }
     })
 
+    console.log(address.items);
+
 
     return (
         <div className='inventory_grid'>
             {editJobSite && <EditAddress
+                index={index}
                 editJobSite={editJobSite}
                 newArray={newArray}
                 id={id}
@@ -62,6 +97,15 @@ export default function SingleAddress() {
                 setNotes={setNotes}
                 number={number}
                 setEditJobSite={setEditJobSite} />}
+
+            {addJobSite && <AddAddress
+                addJobSite={addJobSite}
+                newArray={newArray}
+                id={id}
+                address={address}
+
+                number={number}
+                setAddJobSite={setAddJobSite} />}
             <div className='left-section'>
                 <div className="title">
                     {address.name}
@@ -84,8 +128,8 @@ export default function SingleAddress() {
                     const srcI = param.source.index;
                     const desI = param.destination?.index;
                     if (desI) {
-                      newArray.splice(desI, 0, newArray.splice(srcI, 1)[0]);
-                    //   newArray.saveList(newArray);
+                        newArray.splice(desI, 0, newArray.splice(srcI, 1)[0]);
+                        //   newArray.saveList(newArray);
                     }
                 }
 
@@ -122,6 +166,8 @@ export default function SingleAddress() {
                                                             <td>{item.Quantity}</td>
                                                             <td>{item.Description}</td>
                                                             <td>{item.notes}</td>
+                                                            <td onClick={() => editAddress(item.item, item.number, item.Quantity, item.Description, item.notes)}><AiFillEdit /></td>
+                                                            <td className='delete_td' onClick={() => deleteAddress(item.number)}><AiFillDelete /></td>
                                                         </tr>
                                                     )}
                                                 </Draggable>
@@ -131,9 +177,13 @@ export default function SingleAddress() {
                                     {provided.placeholder}
                                 </tbody>)}
                         </Droppable>
-
                     </table>
                 </DragDropContext>
+                <div className='create_td' onClick={addAdressModal}>
+                    <div className="create_flex" >
+                        <IoMdCreate size={30} />
+                    </div>
+                </div>
             </div>
         </div>
     )

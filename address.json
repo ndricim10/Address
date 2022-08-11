@@ -5,18 +5,11 @@
       "status": "on hold",
       "items": [
         {
-          "item": "edited name",
-          "Quantity": "300",
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam",
-          "number": 5
-        },
-        {
-          "number": 1,
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
+          "item": "h",
+          "Quantity": "h",
+          "Description": "h",
+          "notes": "h",
+          "number": 19
         },
         {
           "item": "Libero",
@@ -26,74 +19,11 @@
           "number": 2
         },
         {
-          "item": "Libero",
-          "Quantity": "100",
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam",
-          "number": 2
-        },
-        {
-          "number": 2,
-          "item": "Libero",
-          "Quantity": 10,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "item": "Libero",
-          "Quantity": "450",
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam",
-          "number": 3
-        },
-        {
-          "number": 3,
-          "item": "Libero",
-          "Quantity": 45,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "item": "Libero",
-          "Quantity": "300",
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam",
-          "number": 5
-        },
-        {
-          "item": "Libero",
-          "Quantity": "30",
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam",
-          "number": 5
-        },
-        {
-          "number": 5,
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "item": "Susndisse",
-          "Quantity": "30",
-          "Description": "5500000",
-          "notes": "Suspndisse potenti nullam",
-          "number": 8
-        },
-        {
-          "item": "Susndisse",
-          "Quantity": "30",
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam",
-          "number": 8
-        },
-        {
-          "number": 8,
-          "item": "Susndisse",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
+          "item": "10",
+          "Quantity": "111",
+          "Description": "text",
+          "notes": "new note",
+          "number": 10
         },
         {
           "number": 16,
@@ -101,6 +31,13 @@
           "Quantity": 3,
           "Description": 55,
           "notes": "Suspndisse potenti nullam"
+        },
+        {
+          "item": "1111",
+          "Quantity": "1111",
+          "Description": "descr",
+          "notes": "1111",
+          "number": 10001
         }
       ],
       "categories": [
@@ -115,13 +52,6 @@
       "status": "completed",
       "items": [
         {
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": "Libero ",
-          "notes": "Suspndisse potenti nullam",
-          "number": 5
-        },
-        {
           "item": "Edited item 1000",
           "Quantity": 3,
           "Description": "Some description",
@@ -129,74 +59,11 @@
           "number": 1
         },
         {
-          "item": "Edited item 10",
-          "Quantity": 3,
-          "Description": "Some description",
-          "notes": "Suspndisse potenti nullam",
-          "number": 1
-        },
-        {
-          "item": "Edited item",
-          "Quantity": 3,
-          "Description": "Some description",
-          "notes": "Suspndisse potenti nullam",
-          "number": 1
-        },
-        {
-          "item": "Edited item",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam",
-          "number": 1
-        },
-        {
-          "item": "Libero0",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam",
-          "number": 1
-        },
-        {
-          "number": 1,
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
           "item": "edited name",
           "Quantity": 10,
           "Description": "5500",
           "notes": "Suspndisse potenti nullam",
           "number": 2
-        },
-        {
-          "item": "Libero00000",
-          "Quantity": 10,
-          "Description": "5500",
-          "notes": "Suspndisse potenti nullam",
-          "number": 2
-        },
-        {
-          "item": "Libero",
-          "Quantity": 10,
-          "Description": "5500",
-          "notes": "Suspndisse potenti nullam",
-          "number": 2
-        },
-        {
-          "number": 2,
-          "item": "Libero",
-          "Quantity": 10,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "item": "Libero",
-          "Quantity": 45,
-          "Description": "Libero Libero Libero ",
-          "notes": "Suspndisse potenti nullam",
-          "number": 3
         },
         {
           "number": 3,
@@ -220,81 +87,11 @@
           "number": 8
         },
         {
-          "item": "Susndisse10",
-          "Quantity": "7",
-          "Description": "Description text",
-          "notes": "Suspndisse potenti nullam.....",
-          "number": 8
-        },
-        {
-          "item": "Susndisse10",
-          "Quantity": "7",
-          "Description": "Description text",
-          "notes": "Suspndisse potenti nullam",
-          "number": 8
-        },
-        {
-          "item": "Susndisse10",
-          "Quantity": 3,
-          "Description": "Description text",
-          "notes": "Suspndisse potenti nullam",
-          "number": 8
-        },
-        {
-          "item": "Susndisse10",
-          "Quantity": 3,
-          "Description": "50000",
-          "notes": "Suspndisse potenti nullam",
-          "number": 8
-        },
-        {
-          "item": "Susndisse10",
-          "Quantity": 3,
-          "Description": "550000",
-          "notes": "Suspndisse potenti nullam",
-          "number": 8
-        },
-        {
-          "item": "Susndisse10",
-          "Quantity": 3,
-          "Description": "5500",
-          "notes": "Suspndisse potenti nullam",
-          "number": 8
-        },
-        {
-          "item": "Susndisse",
-          "Quantity": 3,
-          "Description": "5500",
-          "notes": "Suspndisse potenti nullam",
-          "number": 8
-        },
-        {
-          "number": 8,
-          "item": "Susndisse",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
           "item": "Libero111",
           "Quantity": 3,
           "Description": "5",
           "notes": "Suspndisse potenti nullam",
           "number": 16
-        },
-        {
-          "item": "Libero111",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam",
-          "number": 16
-        },
-        {
-          "number": 16,
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
         }
       ],
       "categories": [
@@ -308,13 +105,6 @@
       "name": "262 3rd Avenue, New York, NY",
       "status": "on hold",
       "items": [
-        {
-          "item": "Libero10",
-          "Quantity": 45,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam",
-          "number": 3
-        },
         {
           "number": 1,
           "item": "Libero",
@@ -371,34 +161,6 @@
       "status": "in progress",
       "items": [
         {
-          "item": "Susndisse",
-          "Quantity": 3,
-          "Description": "Suspndisse potenti nullam....",
-          "notes": "Suspndisse potenti nullam",
-          "number": 8
-        },
-        {
-          "number": 1,
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "item": "Libero",
-          "Quantity": 10,
-          "Description": "5500",
-          "notes": "Suspndisse potenti nullam",
-          "number": 2
-        },
-        {
-          "number": 2,
-          "item": "Libero",
-          "Quantity": 10,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
           "item": "different name",
           "Quantity": 45,
           "Description": 55,
@@ -406,34 +168,6 @@
           "number": 3
         },
         {
-          "number": 3,
-          "item": "Libero",
-          "Quantity": 45,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": "Suspndisse potenti nullam - description...",
-          "notes": "Suspndisse potenti nullam",
-          "number": 5
-        },
-        {
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": "Suspndisse potenti nullam - description",
-          "notes": "Suspndisse potenti nullam",
-          "number": 5
-        },
-        {
-          "number": 5,
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
           "item": "Susndisse",
           "Quantity": 3,
           "Description": "Suspndisse potenti nullam",
@@ -441,39 +175,18 @@
           "number": 8
         },
         {
-          "item": "Susndisse",
-          "Quantity": 3,
-          "Description": "Suspndisse potenti nullamSuspndisse potenti nullamSuspndisse potenti nullamSuspndisse potenti nullamSuspndisse potenti nullamSuspndisse potenti nullam",
-          "notes": "Suspndisse potenti nullam",
-          "number": 8
-        },
-        {
-          "item": "Susndisse",
-          "Quantity": 3,
-          "Description": "Suspndisse potenti nullam",
-          "notes": "Suspndisse potenti nullam",
-          "number": 8
-        },
-        {
-          "number": 8,
-          "item": "Susndisse",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
           "item": "Libero",
           "Quantity": 3,
-          "Description": "Some description",
+          "Description": "Some description100",
           "notes": "Suspndisse potenti nullam",
           "number": 16
         },
         {
-          "number": 16,
-          "item": "Libero",
-          "Quantity": 3,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
+          "item": "1",
+          "Quantity": "0",
+          "Description": "111",
+          "notes": "note",
+          "number": 1110
         }
       ],
       "categories": [
@@ -502,23 +215,9 @@
           "notes": "Suspndisse potenti nullam"
         },
         {
-          "item": "Libero1010",
-          "Quantity": 10,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam",
-          "number": 2
-        },
-        {
           "number": 2,
           "item": "Libero",
           "Quantity": 10,
-          "Description": 55,
-          "notes": "Suspndisse potenti nullam"
-        },
-        {
-          "number": 3,
-          "item": "Libero",
-          "Quantity": 45,
           "Description": 55,
           "notes": "Suspndisse potenti nullam"
         },
