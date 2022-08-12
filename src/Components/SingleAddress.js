@@ -96,11 +96,11 @@ export default function SingleAddress() {
   const [gridColumnApi, setGridColumnApi] = useState(null);
 
   const defColumns = [
-    { field: "number", headerName: "Nr" },
-    { field: "item", headerName: "Item" },
-    { field: "Quantity" },
-    { field: "Description" },
-    { field: "notes" },
+    { field: "number", headerName: "Nr", sortable: true },
+    { field: "item", headerName: "Item", sortable: true },
+    { field: "Quantity", sortable: true },
+    { field: "Description", sortable: true },
+    { field: "notes", sortable: true },
     {
       field: "Actions",
       cellRenderer: (params) => (

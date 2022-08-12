@@ -140,13 +140,6 @@
       "status": "in progress",
       "items": [
         {
-          "item": "10",
-          "Quantity": "50",
-          "Description": "number 10, description",
-          "notes": "number 10, note",
-          "number": 10
-        },
-        {
           "item": "000",
           "Quantity": "000",
           "Description": "drtfygu",
