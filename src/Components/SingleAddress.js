@@ -14,6 +14,7 @@ import { AgGridReact } from "ag-grid-react";
 import request from "../api";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
+import NumberFilter from "./NumberFilter/NumberFilter";
 
 export default function SingleAddress() {
   const dispatch = useDispatch();
@@ -92,20 +93,19 @@ export default function SingleAddress() {
 
   const [rowData, setRowData] = useState("");
   const [gridApi, setGridApi] = useState();
-  
+
   const [gridColumnApi, setGridColumnApi] = useState(null);
 
   const defColumns = [
-    { field: "number", headerName: "Nr", sortable: true },
-    { field: "item", headerName: "Item", sortable: true },
-    { field: "Quantity", sortable: true },
-    { field: "Description", sortable: true },
-    { field: "notes", sortable: true },
+    { field: "number", headerName: "Nr", filter: NumberFilter },
+    { field: "item", headerName: "Item", },
+    { field: "Quantity"},
+    { field: "Description" },
+    { field: "notes" },
     {
       field: "Actions",
       cellRenderer: (params) => (
         <div>
-          {" "}
           <AiFillEdit
             className="edit_td"
             size={25}
@@ -125,16 +125,21 @@ export default function SingleAddress() {
             onClick={() => deleteAddress(params.data.number)}
           />
         </div>
-        // console.log(params.data)
       ),
     },
   ];
+
+  const defColumnDef = {
+    sortable: true,
+    editable: true,
+  }
 
   const onGridReady = (params) => {
     setGridApi(params.api);
     const columns = Object.keys(rowData[0])?.map((key) => ({ field: key }));
     params.api.setColumnDefs(columns);
     setGridColumnApi(params.columnApi);
+    
   };
 
   function gettingData() {
@@ -146,9 +151,11 @@ export default function SingleAddress() {
     gettingData();
   }, [id]);
 
-  const onFilterTextChange=(e)=>{
-    gridApi.setQuickFilter(e.target.value)
-  }
+  const onFilterTextChange = (e) => {
+    gridApi.setQuickFilter(e.target.value);
+  };
+
+  
 
   return (
     <>
@@ -286,13 +293,22 @@ export default function SingleAddress() {
         </div>
       </div>
       <div style={searchDivStyle}>
-      <input type="search" style={searchStyle} onChange={onFilterTextChange} placeholder="search somethings..."/>
+        <input
+          type="search"
+          style={searchStyle}
+          onChange={onFilterTextChange}
+          placeholder="search somethings..."
+        />
       </div>
-
+      <div className="filter_quantity">
+        <h3>Quantity</h3>
+        <span>number</span>
+         </div>
       <div className="ag-theme-alpine" style={{ height: 400, width: 1250 }}>
         <AgGridReact
           rowData={rowData}
           columnDefs={defColumns}
+          defaultColDef={defColumnDef}
           onGridReady={onGridReady}
         ></AgGridReact>
         <div className="absolute_add">

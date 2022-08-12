@@ -110,3 +110,7 @@ table tr th, table tr td{
 .ag-theme-alpine{
     position: relative;
 }
+
+.filter_quantity{
+    cursor: pointer;
+}
